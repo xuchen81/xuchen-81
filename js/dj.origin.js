@@ -48,7 +48,7 @@ $(function() {
     var randomRotate = function() {
         var curAngle = getRandomInt(0,360);
         var rand = getRandomInt(0, 7);
-        var easeFunc = 2;
+        var easeFunc = 'cubic-in-out';
         if (rand == 0) {
             easeFunc = 'linear';
         } else if (rand == 1) {
@@ -59,8 +59,6 @@ $(function() {
             easeFunc = 'elastic';
         } else if (rand == 4) {
             easeFunc = 'bounce';
-        } else {
-            easeFunc = 'cubic-in-out';
         }
         svg.selectAll('path').transition()
                              .attr("d", function(d) {
@@ -68,7 +66,7 @@ $(function() {
                              })
                              .attr("transform", "translate(" + width / 2 + "," + height / 2 + ") rotate(" + curAngle + "," + 0 + "," + 0 + ")")
                              .duration(500)
-                             .ease('cubic-in-out');
+                             .ease(easeFunc);
     }
 
     svg.selectAll('path')
