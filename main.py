@@ -17,7 +17,13 @@
 import webapp2
 from google.appengine.ext.webapp import template
 
-class RainHoleHandler(webapp2.RequestHandler):
+
+class IndexHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('index.html',{}))
+
+
+class RainbowRainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.out.write(template.render('rainhole.html',{}))
 
@@ -33,7 +39,8 @@ class DJHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
+    ('/', IndexHandler),
     ('/dj', DJHandler),
     ('/dotimage', DotImageHandler),
-    ('/rain', RainHoleHandler),
+    ('/rainbowrain', RainbowRainHandler),
 ], debug=True)
