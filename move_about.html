@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/js/lib/bootstrap.min.js"></script>
+    <link href="/css/move/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/css/move/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/lib/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        /*padding: 9px 0;*/
+      }
+
+      #map-canvas img {
+      	max-width: none;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+
+      section {
+        padding: 40px 0px;
+      }
+
+      p {
+        color: #434950;
+        line-height: 1.5;
+        margin-bottom: 1em;
+        font-size: 18px;
+      }
+
+      .about h1 {
+        font-size:24px;
+        color: #434950;
+        font-weight: 400;
+      }
+
+      .about img {
+        border-radius: 200px;
+      }
+    </style>
+
+  </head>
+  <body>
+    {% include "move_header.html" %}
+    <div class="page container about">
+      <section class="row">
+        <h1 class="span2 offset1">About Us</h1>
+        <div class="span8">
+          <p>We all love travelling. We also like to remember where we haven been, where we are, and where we are going to. This website is designed not only to track the locations of where you are, but also to track your movement, how many steps you walk, you run, even when you drive. This website currently only shows my movement.</p>
+        <hr>
+        </div>
+      </section>
+
+      <section class="row team">
+        <h1 class="span2 offset1">Developer</h1>
+        <div class="span2">
+          <img src="/img/chen.png" width="130" >
+          <h1>Chen Xu</h1>
+          <p><span>Once got lost.</span> <a href="http://twitter.com/xuchen81" class="light" target="_blank">@xuchen81</a></p>
+        </div>
+      </section>
+    </div>
+
+
+
+      <hr>
+
+    </div><!--/.fluid-container-->
+  </body>
+</html>
