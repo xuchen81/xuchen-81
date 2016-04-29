@@ -30,13 +30,13 @@ function flip(event) {
 
 	if (first_select == second_select && first_select != "" && second_select !=""){
 		disableOnclick();
-		setTimeout('matched(first_select_element, second_select_element)' ,1600);
+		setTimeout('matched(first_select_element, second_select_element)' ,1100);
 
 	}
 
 	else if(first_select != second_select && first_select != "" && second_select != ""){
 		disableOnclick();
-		setTimeout('notMatchedFlipBack(first_select_element, second_select_element)' ,1700);
+		setTimeout('notMatchedFlipBack(first_select_element, second_select_element)' ,1100);
 	}
 
 	else if(first_select == "" || second_select == ""){
@@ -97,7 +97,6 @@ function removeMatchNodes(){
 		gamedone.appendChild(congrats);
 		gamedone.appendChild(ul);
 		cards_container.appendChild(gamedone);
-
 	}
 }
 
