@@ -1,0 +1,144 @@
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>home</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="xuchen81">
+	<!-- Date: 2010-07-13 -->
+	<link rel="stylesheet" type="text/css" href="/css/sudoku.css">
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="/js/sudoku.js"></script>
+</head>
+<body onload ="init()">
+
+<div id = "wrapper">
+	<div id = "title">Sudoku Planet</div>
+	<div id = "row" class = "1" style = "border-top:3px solid #000000;">
+			<input id = "col1" class = "cell" type="text" maxlength="1" />
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"   />
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"   />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"   />
+			<input id = "col8" class = "cell" type="text" maxlength="1"   />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+
+	</div>
+
+	<div id = "row" class = "2">
+			<input id = "col1" class = "cell" type="text" maxlength="1"  />
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+
+	</div>
+
+	<div id = "row" class = "3">
+			<input id = "col1" class = "cell" type="text" maxlength="1"   />
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+
+	</div>
+
+	<div id = "row" class = "4" style = "border-top:3px solid #000000;" >
+			<input id = "col1" class = "cell" type="text" maxlength="1"  />
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+
+	</div>
+
+	<div id = "row" class = "5">
+			<input id = "col1" class = "cell" type="text" maxlength="1"  />
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+	</div>
+
+	<div id = "row" class = "6" >
+			<input id = "col1" class = "cell" type="text" maxlength="1"  />
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+	</div>
+	<div id = "row" class = "7" style = "border-top:3px solid #000000;">
+			<input id = "col1" class = "cell" type="text" maxlength="1"/>
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+
+	</div>
+	<div id = "row" class = "8">
+			<input id = "col1" class = "cell" type="text" maxlength="1"/>
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+
+	</div>
+	<div id = "row" class = "9" style = "border-bottom:3px solid #000000;">
+			<input id = "col1" class = "cell" type="text" maxlength="1"/>
+			<input id = "col2" class = "cell" type="text" maxlength="1"  />
+			<input id = "col3" class = "cell" type="text" maxlength="1"  />
+
+			<input id = "col4" class = "cell" type="text" maxlength="1"  />
+			<input id = "col5" class = "cell" type="text" maxlength="1"  />
+			<input id = "col6" class = "cell" type="text" maxlength="1"  />
+			<input id = "col7" class = "cell" type="text" maxlength="1"  />
+			<input id = "col8" class = "cell" type="text" maxlength="1"  />
+			<input id = "col9" class = "cell" type="text" maxlength="1"  />
+
+	</div>
+	<button type="button" onclick = "saveGame()">Save Game</button>
+	<button type="button" onclick = "">test database</button>
+	<button type="button" onclick = "getSolution()">solution</button>
+	<button type="button" value="Start count!" onClick="doTimer()">start timer</button>
+	<div id = "timer" width = "200" height = "200"> 00 : 00 : 00 </div>
+	<div class = "foot"></div>
+</div>
+</body>
+</html>

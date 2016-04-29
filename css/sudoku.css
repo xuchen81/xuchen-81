@@ -1,0 +1,84 @@
+body{
+/*	background-color:#270B46;*/
+	//background-color:#000000;
+/*	background-image:url(/img/08bleed_kobe_full.jpg);*/
+}
+#wrapper {
+	margin:0 auto;
+	width:903px;
+
+}
+@font-face{
+	font-family:"FridaySH";
+	src: url("/otf/Friday13SH.otf");
+}
+
+
+#title{
+	text-align:center;
+	font-family:FridaySH,Helvetica,sans-serif;
+	font-size:90px;
+	-webkit-text-stroke:2px #6b44f4;
+	text-shadow:#f4d12f 0 0 40px;
+}
+.foot{
+	clear:both;
+}
+
+#container{
+float:left;
+width:800px;
+height:500px;
+margin-left:20px;
+margin-top:20px;
+-webkit-perspective:1000;
+}
+
+input{
+	height: 80;
+	width:80;
+	float:left;
+	text-align:center;
+	font-size:60px;
+	color:#6b44f4;
+/*	background-image:url(/img/chen.png);*/
+	background-color:#ffffff;
+/*	border:1px solid #000000;*/
+}
+
+#row{
+	float:left;
+}
+
+
+.1{
+	border-top:3px solid #000000;
+}
+#col1{
+	border-left:3px solid #000000;
+}
+#col3, #col6, #col9{
+	border-right:3px solid #000000;
+}
+
+.readonlycell{
+	color:#000000;
+}
+.cell.selected{
+	background-color:#99ccff;
+}
+
+.cell.highlighted, .readonlycell.highlighted{
+	background-color:#ffcc99;
+}
+
+.cell.selected.red, .readonlycell.selected.red{
+	color:#ff0000;
+}
+
+.cell.red, .readonlycell.red{
+	color:#ff0000;
+}
+#jiji{
+	float:left;
+}

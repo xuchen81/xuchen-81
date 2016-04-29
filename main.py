@@ -152,6 +152,10 @@ class MemoryCardHandler(webapp2.RequestHandler):
         self.response.out.write(template.render('memory_card.html',{}))
 
 
+class SudokuHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('sudoku.html',{}))
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/dj', DJHandler),
@@ -163,4 +167,5 @@ app = webapp2.WSGIApplication([
     ('/move/requestHandle', RequestHandle),
     ('/shortest-path-solver', ShortestPathSolverHandler),
     ('/memory-cards', MemoryCardHandler),
+    ('/sudoku', SudokuHandler),
 ], debug=True)
