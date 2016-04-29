@@ -142,6 +142,10 @@ class MoveAboutHanlder(webapp2.RequestHandler):
     self.response.out.write(template.render('move_about.html',{}))
 
 
+class ShortestPathSolverHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('shortest_path_solver.html',{}))
+
 
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
@@ -152,4 +156,5 @@ app = webapp2.WSGIApplication([
     ('/move/about', MoveAboutHanlder),
     ('/move/storyline', MoveStorylineHanlder),
     ('/move/requestHandle', RequestHandle),
+    ('/shortest-path-solver', ShortestPathSolverHandler),
 ], debug=True)

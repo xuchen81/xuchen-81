@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Raphaël · Curver</title>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+        <script src="/js/lib/raphael-min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/graph.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/graphEditor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/js/solver.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="/css/short_path_home.css" type="text/css" media="screen">
+    </head>
+    <body>
+    	<div id="wrapper">
+    		<div id="title">Shortest Path Solver</div>
+    		<div id="descripttion">
+    		This website provides people a visualized way to create their own graphs, and solve for the shortes path. Follow the tips to create a graph, it is very easy to use.
+    		</div>
+
+    		<div id="menu">
+				<select id="editingMode">
+  					<option value="path">Drag a path</option>
+  					<option value="node">Drag a node</option>
+				</select>
+
+				<button id="solve" class="btn btn-success btn-small" style="">Solve graph</button>
+			</div>
+    		<div id="holder"></div>
+
+    		<div id="toolbar" style="display: none;">
+    			<div id="weightEditor"> <span>Enter a weight: </span><input id="weightInput" type="text" /></div>
+    		</div>
+    		<div id="tips">
+    			<div id="tip">Double Click: create a node</div>
+    			<div id="tip">Double Click on a node to remove a node</div>
+    			<div id="tip">Select 'Drag a path' to connect two nodes</div>
+    			<div id="tip">Select 'Drag a node' to move nodes around</div>
+    		</div>
+    	</div>
+    </body>
+</html>
