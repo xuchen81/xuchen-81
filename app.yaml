@@ -18,8 +18,8 @@ handlers:
 - url: /js
   static_dir: js
 
-- url: /html
-  static_dir: html
+- url: /otf
+  static_dir: otf
 
 - url: .*
   script: main.app

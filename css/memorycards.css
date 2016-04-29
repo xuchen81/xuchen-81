@@ -1,0 +1,174 @@
+body{
+/*	background-color:#270B46;*/
+	background-color:#F0F8FF;
+	background-color:#F8F8FF;
+/*	background-image:url(/img/08bleed_kobe_full.jpg);*/
+}
+#wrapper {
+	margin:0 auto;
+	width:1086px;
+	height:940px;
+	background-repeat:repeat-y;
+}
+
+#cards_container{
+/*	background-image:url(/img/home.png);*/
+	margin-left:180px;
+	width:800px;
+	float:left;
+}
+
+@font-face{
+	font-family:"FridaySH";
+	src: url("/otf/Friday13SH.otf");
+}
+
+@font-face{
+    font-family:"HelveticaInserat-Roman";
+	src: url("/otf/HelveticaInserat-Roman.otf");
+}
+
+@font-face{
+    font-family:"Kberry";
+	src: url("/otf/kberry.ttf");
+}
+
+@font-face{
+    font-family:"Jester";
+	src: url("/otf/jester.ttf");
+}
+
+@font-face{
+    font-family:"AdineKirnberg-Script";
+	src: url("/otf/AdineKirnberg-Script.ttf");
+}
+
+a#title{
+	text-decoration:none;
+	color:#000000;
+	font-family:HelveticaInserat-Roman,sans-serif;
+	font-size:90px;
+	-webkit-text-stroke:3px #648499;
+	text-shadow:#f4d12f 0 0 40px;
+}
+
+.foot{
+	clear:both;
+}
+
+
+#container{
+float:left;
+width:180px;
+height:180px;
+margin-top:20px;
+-webkit-perspective:1000;
+}
+
+#placeHolder{
+float:left;
+width:180px;
+height:180px;
+margin-top:20px;
+-webkit-perspective:1000;
+}
+
+
+.card
+{
+	height:180px;
+	width: 160px;
+	top: 28px;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 1.5s;
+}
+
+
+.card.flipped
+{
+	-webkit-transform: rotateY(180deg);
+}
+
+
+
+.face{
+    position: absolute;
+	width: 160px;
+	height:180px;
+	-webkit-backface-visibility: hidden;
+
+}
+
+.face p
+{
+	margin-top: 26px;
+	margin-bottom: 0;
+	text-align: center;
+	font-size: 46px;
+}
+
+img{
+-webkit-border-radius: 10px;
+/* Drop shadow around the card */
+-webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+.front{
+}
+
+.back{
+-webkit-transform:rotateY(180deg);
+}
+
+#gamedone {
+	float:left;
+	margin-left:110px;
+	margin-top:70px;
+	width:500px;
+	height:300px;
+	color:#ffffff;
+	background-image:url(/img/homebg.png);
+	-webkit-border-radius: 30px;
+}
+
+#congrats{
+	font-family:Kberry;
+	color:red;
+	text-align:center;
+	font-size:40px;
+	margin-top:20px;
+}
+
+ul{
+	list-style:none;
+	margin-top:60px;
+}
+
+li a{
+/*	padding-left:2;*/
+	color:#999999;
+	text-decoration:none;
+	font-size:30px;
+	float:left;
+	width:200px;
+	margin-left:20px;
+	font-family:HelveticaInserat-Roman,sans-serif;
+	font-size:40px;
+
+	-webkit-transition:  text-shadow 1s, margin-top 500ms, color 1s;
+}
+
+li a:hover{
+	text-shadow:#f4d12f 0 0 50px;
+	color:#000000;
+	margin-top:-20px;
+}
+
+
+@-webkit-keyframes drive{
+from{}
+50%{}
+to{ -webkit-transform: rotateY(1260deg);}
+}
