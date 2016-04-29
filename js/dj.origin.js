@@ -38,7 +38,6 @@ $(function() {
 
     var randArc = d3.svg.arc()
                         .innerRadius(function(d) {
-                            console.log(d);
                             return d.data.inner;
                         })
                         .outerRadius(function(d) {
