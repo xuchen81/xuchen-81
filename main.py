@@ -156,6 +156,12 @@ class SudokuHandler(webapp2.RequestHandler):
     def get(self):
         self.response.out.write(template.render('sudoku.html',{}))
 
+
+class GameHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('cross_game.html',{}))
+
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/dj', DJHandler),
@@ -168,4 +174,5 @@ app = webapp2.WSGIApplication([
     ('/shortest-path-solver', ShortestPathSolverHandler),
     ('/memory-cards', MemoryCardHandler),
     ('/sudoku', SudokuHandler),
+    ('/cross-game', GameHandler),
 ], debug=True)
