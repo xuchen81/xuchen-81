@@ -89,10 +89,10 @@ $(function() {
         }
     }
 
-    var square_size = 40;
+    var square_size = 35;
     var mode = null;
     var modeSwitchBtnSpace = 50;
-    var modeBtnSize = 70;
+    var modeBtnSize = 50;
     var size = 10;
     var offset = 100;
     var board_annotation_space = 20;
@@ -155,12 +155,12 @@ $(function() {
                       .attr("id", "yes_btn_boader")
                       .attr("stroke", "gray");
 
-    svg.append("rect").attr("x", yesx + 15)
-                      .attr("y", yesy + 15)
-                      .attr("width", modeBtnSize - 30)
-                      .attr("height", modeBtnSize - 30)
+    svg.append("rect").attr("x", yesx + 10)
+                      .attr("y", yesy + 10)
+                      .attr("width", modeBtnSize - 20)
+                      .attr("height", modeBtnSize - 20)
                       .attr('fill', 'black')
-                      .attr("stroke-width", 8)
+                      .attr("stroke-width", 4)
                       .attr("class", "yes_btn")
                       .attr("stroke", "gray");
 
@@ -179,7 +179,7 @@ $(function() {
 
     var noCrossX = nox + modeBtnSize / 2;
     var noCrossY = noy + modeBtnSize / 2;
-    svg.append('path').attr("d", d3.svg.symbol().size(900).type(function(d) { return 'cross'}))
+    svg.append('path').attr("d", d3.svg.symbol().size(700).type(function(d) { return 'cross'}))
                       .attr("class", "no_btn")
                       .attr('transform', 'translate(' + noCrossX + ',' + noCrossY + ') rotate(45)')
                       .attr('fill', 'red');
@@ -300,7 +300,7 @@ $(function() {
             } else if (cross.size() == 0) {
                 var x = parseInt(d3.select(this).attr("x")) + square_size / 2;
                 var y = parseInt(d3.select(this).attr("y")) + square_size / 2;
-                svg.append('path').attr("d", d3.svg.symbol().size(600).type(function(d) { return 'cross'}))
+                svg.append('path').attr("d", d3.svg.symbol().size(350).type(function(d) { return 'cross'}))
                                   .attr("id", crossId)
                                   .attr("class", "cross")
                                   .attr('transform', 'translate(' + x + ',' + y + ') rotate(45)')
@@ -339,4 +339,11 @@ $(function() {
             d3.select("#"+tid).attr("x", rx + top_annotation_box_w / 2 - textW / 2).attr("y", top_annotation_box_h - j * textH - 6);
         }
     }
+    $("#hint_btn button").click(function() {
+        if ($("#instructions").is(':visible')) {
+            $(this).html("Show How to Play");
+        } else {
+            $(this).html("Hide How to Play");
+        }
+    });
 });
