@@ -93,13 +93,11 @@ $(function() {
     var mode = null;
     var modeSwitchBtnSpace = 50;
     var modeBtnSize = 50;
-    var size = 10;
-    var offset = 100;
     var boardAnnotationSpace = 20;
     var topAnnotationBoxH = maxNum * 20, topAnnotationBoxW = 25;
     var leftAnnotationBoxH = topAnnotationBoxW, leftAnnotationBoxW = topAnnotationBoxH;
 
-    var width = n * squareSize + leftAnnotationBoxW + 50, height = 1000, centerGap = 20;
+    var width = n * squareSize + leftAnnotationBoxW + 50, height = 1000;
     var svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
