@@ -89,26 +89,26 @@ $(function() {
         }
     }
 
-    var square_size = 35;
+    var squareSize = 35;
     var mode = null;
     var modeSwitchBtnSpace = 50;
     var modeBtnSize = 50;
     var size = 10;
     var offset = 100;
-    var board_annotation_space = 20;
+    var boardAnnotationSpace = 20;
     var topAnnotationBoxH = maxNum * 20, topAnnotationBoxW = 25;
     var leftAnnotationBoxH = topAnnotationBoxW, leftAnnotationBoxW = topAnnotationBoxH;
 
-    var width = n * square_size + leftAnnotationBoxW + 50, height = 1000, centerGap = 20;
+    var width = n * squareSize + leftAnnotationBoxW + 50, height = 1000, centerGap = 20;
     var svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
-            var x = j * square_size + leftAnnotationBoxW + board_annotation_space;
-            var y = i * square_size + topAnnotationBoxH + board_annotation_space;
+            var x = j * squareSize + leftAnnotationBoxW + boardAnnotationSpace;
+            var y = i * squareSize + topAnnotationBoxH + boardAnnotationSpace;
             svg.append("rect").attr("x", x)
                               .attr("y", y)
-                              .attr("width", square_size)
-                              .attr("height", square_size)
+                              .attr("width", squareSize)
+                              .attr("height", squareSize)
                               .attr('fill', 'white')
                               .attr("stroke-width", 5)
                               .attr("stroke", "gray")
@@ -117,7 +117,7 @@ $(function() {
         }
     }
     for (var i = 0; i < n; i++) {
-        var x = i * square_size + leftAnnotationBoxW + square_size / 2 - topAnnotationBoxW / 2 + board_annotation_space;
+        var x = i * squareSize + leftAnnotationBoxW + squareSize / 2 - topAnnotationBoxW / 2 + boardAnnotationSpace;
         var y = 0;
         svg.append("rect").attr("x", x)
                           .attr("y", y)
@@ -133,7 +133,7 @@ $(function() {
 
     for (var i = 0; i < n; i++) {
         var x = 0;
-        var y = i * square_size + topAnnotationBoxH + square_size / 2 - leftAnnotationBoxH / 2 + board_annotation_space;
+        var y = i * squareSize + topAnnotationBoxH + squareSize / 2 - leftAnnotationBoxH / 2 + boardAnnotationSpace;
         svg.append("rect").attr("x", x)
                           .attr("y", y)
                           .attr("rx", 3)
@@ -146,8 +146,8 @@ $(function() {
                           .attr("id", "left_a_"+i);
     }
 
-    var yesy = topAnnotationBoxH + 2 * board_annotation_space + n * square_size;
-    var yesx = leftAnnotationBoxW + board_annotation_space + n * square_size / 2 - modeBtnSize - modeSwitchBtnSpace / 2;
+    var yesy = topAnnotationBoxH + 2 * boardAnnotationSpace + n * squareSize;
+    var yesx = leftAnnotationBoxW + boardAnnotationSpace + n * squareSize / 2 - modeBtnSize - modeSwitchBtnSpace / 2;
 
     svg.append("rect").attr("x", yesx)
                       .attr("y", yesy)
@@ -170,8 +170,8 @@ $(function() {
                       .attr("class", "yes_btn")
                       .attr("stroke", "gray");
 
-    var noy = topAnnotationBoxH + 2 * board_annotation_space + n * square_size;
-    var nox = leftAnnotationBoxW + board_annotation_space + n * square_size / 2 + modeSwitchBtnSpace / 2;
+    var noy = topAnnotationBoxH + 2 * boardAnnotationSpace + n * squareSize;
+    var nox = leftAnnotationBoxW + boardAnnotationSpace + n * squareSize / 2 + modeSwitchBtnSpace / 2;
 
     svg.append("rect").attr("x", nox)
                       .attr("y", noy)
@@ -206,7 +206,7 @@ $(function() {
         var x1 = parseInt(d3.select("rect[id='" + id + "']").attr("x"));
         var y1 = parseInt(d3.select("rect[id='" + id + "']").attr("y"));
         var end = row + "_"+ (n - 1);
-        var x2 = parseInt(d3.select("rect[id='" + end + "']").attr("x")) + square_size;
+        var x2 = parseInt(d3.select("rect[id='" + end + "']").attr("x")) + squareSize;
         var y2 = parseInt(d3.select("rect[id='" + end + "']").attr("y"));
         svg.append('line').style("stroke", "black").attr('stroke-width', 3).attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2);
     }
@@ -217,7 +217,7 @@ $(function() {
         var y1 = parseInt(d3.select("rect[id='" + id + "']").attr("y"));
         var end = (n - 1) + "_" + col;
         var x2 = parseInt(d3.select("rect[id='" + end + "']").attr("x"));
-        var y2 = parseInt(d3.select("rect[id='" + end + "']").attr("y")) + square_size;
+        var y2 = parseInt(d3.select("rect[id='" + end + "']").attr("y")) + squareSize;
         svg.append('line').style("stroke", "black").attr('stroke-width', 3).attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2);
     }
 
@@ -335,8 +335,8 @@ $(function() {
             if (cross.size() == 1) {
                 cross.remove();
             } else if (cross.size() == 0) {
-                var x = parseInt(d3.select(this).attr("x")) + square_size / 2;
-                var y = parseInt(d3.select(this).attr("y")) + square_size / 2;
+                var x = parseInt(d3.select(this).attr("x")) + squareSize / 2;
+                var y = parseInt(d3.select(this).attr("y")) + squareSize / 2;
                 svg.append('path').attr("d", d3.svg.symbol().size(350).type(function(d) { return 'cross'}))
                                   .attr("id", crossId)
                                   .attr("class", "cross")
