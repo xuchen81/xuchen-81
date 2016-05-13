@@ -184,6 +184,35 @@ $(function() {
                       .attr('transform', 'translate(' + noCrossX + ',' + noCrossY + ') rotate(45)')
                       .attr('fill', 'red');
 
+    var separator = null;
+    if (n == 15 || n == 10) {
+        separator = 5;
+    } else {
+        separator = 4;
+    }
+    var numL = n / separator - 1;
+
+    for (var i = 0; i < numL; i++) {
+        var row = separator * (i + 1);
+        var id = row + "_0";
+        var x1 = parseInt(d3.select("rect[id='" + id + "']").attr("x"));
+        var y1 = parseInt(d3.select("rect[id='" + id + "']").attr("y"));
+        var end = row + "_"+ (n - 1);
+        var x2 = parseInt(d3.select("rect[id='" + end + "']").attr("x")) + square_size;
+        var y2 = parseInt(d3.select("rect[id='" + end + "']").attr("y"));
+        svg.append('line').style("stroke", "black").attr('stroke-width', 3).attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2);
+    }
+    for (var i = 0; i < numL; i++) {
+        var col = separator * (i + 1);
+        var id = "0_" + col;
+        var x1 = parseInt(d3.select("rect[id='" + id + "']").attr("x"));
+        var y1 = parseInt(d3.select("rect[id='" + id + "']").attr("y"));
+        var end = (n - 1) + "_" + col;
+        var x2 = parseInt(d3.select("rect[id='" + end + "']").attr("x"));
+        var y2 = parseInt(d3.select("rect[id='" + end + "']").attr("y")) + square_size;
+        svg.append('line').style("stroke", "black").attr('stroke-width', 3).attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2);
+    }
+
     d3.selectAll(".yes_btn").on('click', function() {
         d3.select("rect[id='yes_btn_boader']").attr("stroke-width", 10).attr("stroke", 'green');
         d3.select("rect[id='no_btn_boader']").attr("stroke-width", 4).attr("stroke", 'gray');
