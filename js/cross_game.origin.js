@@ -245,7 +245,7 @@ $(function() {
             if (fill == "black") {
                 d3.select(this).attr('fill', 'white');
                 soln[clickedRow][clickedCol] = 0;
-            } else if (fill == "white") {
+            } else if (fill == "white" && d3.select("#cross_" + cellId).size() == 0) {
                 d3.select(this).attr('fill', 'black');
                 soln[clickedRow][clickedCol] = 1;
             }
