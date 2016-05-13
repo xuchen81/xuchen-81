@@ -343,7 +343,9 @@ $(function() {
                                   .attr('transform', 'translate(' + x + ',' + y + ') rotate(45)')
                                   .attr('fill', 'red')
                                   .on("click", function() {
-                                      d3.select(this).remove();
+                                      if (mode == "no") {
+                                          d3.select(this).remove();
+                                      }
                                   });
             }
         }
