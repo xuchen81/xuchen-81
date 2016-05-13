@@ -96,15 +96,15 @@ $(function() {
     var size = 10;
     var offset = 100;
     var board_annotation_space = 20;
-    var top_annotation_box_h = maxNum * 20, top_annotation_box_w = 25;
-    var left_annotation_box_h = top_annotation_box_w, left_annotation_box_w = top_annotation_box_h;
+    var topAnnotationBoxH = maxNum * 20, topAnnotationBoxW = 25;
+    var leftAnnotationBoxH = topAnnotationBoxW, leftAnnotationBoxW = topAnnotationBoxH;
 
-    var width = n * square_size + left_annotation_box_w + 50, height = 1000, centerGap = 20;
+    var width = n * square_size + leftAnnotationBoxW + 50, height = 1000, centerGap = 20;
     var svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
     for (var i = 0; i < n; i++) {
         for (var j = 0; j < n; j++) {
-            var x = j * square_size + left_annotation_box_w + board_annotation_space;
-            var y = i * square_size + top_annotation_box_h + board_annotation_space;
+            var x = j * square_size + leftAnnotationBoxW + board_annotation_space;
+            var y = i * square_size + topAnnotationBoxH + board_annotation_space;
             svg.append("rect").attr("x", x)
                               .attr("y", y)
                               .attr("width", square_size)
@@ -117,14 +117,14 @@ $(function() {
         }
     }
     for (var i = 0; i < n; i++) {
-        var x = i * square_size + left_annotation_box_w + square_size / 2 - top_annotation_box_w / 2 + board_annotation_space;
+        var x = i * square_size + leftAnnotationBoxW + square_size / 2 - topAnnotationBoxW / 2 + board_annotation_space;
         var y = 0;
         svg.append("rect").attr("x", x)
                           .attr("y", y)
                           .attr("rx", 3)
                           .attr("ry", 3)
-                          .attr("width", top_annotation_box_w)
-                          .attr("height", top_annotation_box_h)
+                          .attr("width", topAnnotationBoxW)
+                          .attr("height", topAnnotationBoxH)
                           .attr('fill', 'white')
                           .attr("stroke-width", 2)
                           .attr("stroke", "gray")
@@ -133,21 +133,21 @@ $(function() {
 
     for (var i = 0; i < n; i++) {
         var x = 0;
-        var y = i * square_size + top_annotation_box_h + square_size / 2 - left_annotation_box_h / 2 + board_annotation_space;
+        var y = i * square_size + topAnnotationBoxH + square_size / 2 - leftAnnotationBoxH / 2 + board_annotation_space;
         svg.append("rect").attr("x", x)
                           .attr("y", y)
                           .attr("rx", 3)
                           .attr("ry", 3)
-                          .attr("width", left_annotation_box_w)
-                          .attr("height", left_annotation_box_h)
+                          .attr("width", leftAnnotationBoxW)
+                          .attr("height", leftAnnotationBoxH)
                           .attr('fill', 'white')
                           .attr("stroke-width", 2)
                           .attr("stroke", "gray")
                           .attr("id", "left_a_"+i);
     }
 
-    var yesy = top_annotation_box_h + 2 * board_annotation_space + n * square_size;
-    var yesx = left_annotation_box_w + board_annotation_space + n * square_size / 2 - modeBtnSize - modeSwitchBtnSpace / 2;
+    var yesy = topAnnotationBoxH + 2 * board_annotation_space + n * square_size;
+    var yesx = leftAnnotationBoxW + board_annotation_space + n * square_size / 2 - modeBtnSize - modeSwitchBtnSpace / 2;
 
     svg.append("rect").attr("x", yesx)
                       .attr("y", yesy)
@@ -170,8 +170,8 @@ $(function() {
                       .attr("class", "yes_btn")
                       .attr("stroke", "gray");
 
-    var noy = top_annotation_box_h + 2 * board_annotation_space + n * square_size;
-    var nox = left_annotation_box_w + board_annotation_space + n * square_size / 2 + modeSwitchBtnSpace / 2;
+    var noy = topAnnotationBoxH + 2 * board_annotation_space + n * square_size;
+    var nox = leftAnnotationBoxW + board_annotation_space + n * square_size / 2 + modeSwitchBtnSpace / 2;
 
     svg.append("rect").attr("x", nox)
                       .attr("y", noy)
@@ -361,7 +361,7 @@ $(function() {
         svg.append("text").attr("x", rx).attr("y", ry).text(t).attr("id", tid);
         var textW = d3.select("#"+tid).node().getBoundingClientRect().width;
         var textH = d3.select("#"+tid).node().getBoundingClientRect().height;
-        d3.select("#"+tid).attr("x", rx + left_annotation_box_w - textW - 8).attr("y", ry + textH / 2 + left_annotation_box_h / 2 - 3);
+        d3.select("#"+tid).attr("x", rx + leftAnnotationBoxW - textW - 8).attr("y", ry + textH / 2 + leftAnnotationBoxH / 2 - 3);
     }
 
     for (var i = 0; i < n; i++) {
@@ -375,7 +375,7 @@ $(function() {
             svg.append("text").attr("x", rx).attr("y", ry).text(topAnnotations[i][j]).attr("id", tid);
             var textW = d3.select("#"+tid).node().getBoundingClientRect().width;
             var textH = d3.select("#"+tid).node().getBoundingClientRect().height;
-            d3.select("#"+tid).attr("x", rx + top_annotation_box_w / 2 - textW / 2).attr("y", top_annotation_box_h - j * textH - 6);
+            d3.select("#"+tid).attr("x", rx + topAnnotationBoxW / 2 - textW / 2).attr("y", topAnnotationBoxH - j * textH - 6);
         }
     }
     $("#hint_btn button").click(function() {
