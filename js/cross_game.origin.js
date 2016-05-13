@@ -1,5 +1,4 @@
 $(function() {
-    // [min, max]
     var level = [
         [15, 5],
         [15, 4],
@@ -17,6 +16,7 @@ $(function() {
         [8, 2],
         [8, 1],
     ];
+    // [min, max]
     function getRandomIntInclusive(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -96,7 +96,7 @@ $(function() {
     var size = 10;
     var offset = 100;
     var board_annotation_space = 20;
-    var top_annotation_box_h = maxNum * 20, top_annotation_box_w = 30;
+    var top_annotation_box_h = maxNum * 20, top_annotation_box_w = 25;
     var left_annotation_box_h = top_annotation_box_w, left_annotation_box_w = top_annotation_box_h;
 
     var width = n * square_size + left_annotation_box_w + 50, height = 1000, centerGap = 20;
@@ -121,6 +121,8 @@ $(function() {
         var y = 0;
         svg.append("rect").attr("x", x)
                           .attr("y", y)
+                          .attr("rx", 3)
+                          .attr("ry", 3)
                           .attr("width", top_annotation_box_w)
                           .attr("height", top_annotation_box_h)
                           .attr('fill', 'white')
@@ -134,6 +136,8 @@ $(function() {
         var y = i * square_size + top_annotation_box_h + square_size / 2 - left_annotation_box_h / 2 + board_annotation_space;
         svg.append("rect").attr("x", x)
                           .attr("y", y)
+                          .attr("rx", 3)
+                          .attr("ry", 3)
                           .attr("width", left_annotation_box_w)
                           .attr("height", left_annotation_box_h)
                           .attr('fill', 'white')
@@ -147,6 +151,8 @@ $(function() {
 
     svg.append("rect").attr("x", yesx)
                       .attr("y", yesy)
+                      .attr("rx", 3)
+                      .attr("ry", 3)
                       .attr("width", modeBtnSize)
                       .attr("height", modeBtnSize)
                       .attr('fill', 'white')
@@ -169,6 +175,8 @@ $(function() {
 
     svg.append("rect").attr("x", nox)
                       .attr("y", noy)
+                      .attr("rx", 3)
+                      .attr("ry", 3)
                       .attr("width", modeBtnSize)
                       .attr("height", modeBtnSize)
                       .attr('fill', 'white')
@@ -214,14 +222,14 @@ $(function() {
     }
 
     d3.selectAll(".yes_btn").on('click', function() {
-        d3.select("rect[id='yes_btn_boader']").attr("stroke-width", 10).attr("stroke", 'green');
+        d3.select("rect[id='yes_btn_boader']").attr("stroke-width", 8).attr("stroke", '#5CD932');
         d3.select("rect[id='no_btn_boader']").attr("stroke-width", 4).attr("stroke", 'gray');
         mode = "yes";
     });
 
     d3.selectAll(".no_btn").on('click', function() {
         d3.select("rect[id='yes_btn_boader']").attr("stroke-width", 4).attr("stroke", 'gray');
-        d3.select("rect[id='no_btn_boader']").attr("stroke-width", 10).attr("stroke", 'green');
+        d3.select("rect[id='no_btn_boader']").attr("stroke-width", 8).attr("stroke", '#5CD932');
         mode = "no";
     });
 
@@ -351,7 +359,7 @@ $(function() {
         svg.append("text").attr("x", rx).attr("y", ry).text(t).attr("id", tid);
         var textW = d3.select("#"+tid).node().getBoundingClientRect().width;
         var textH = d3.select("#"+tid).node().getBoundingClientRect().height;
-        d3.select("#"+tid).attr("x", rx + left_annotation_box_w - textW - 8).attr("y", ry + textH / 2 + left_annotation_box_h / 2 - 4);
+        d3.select("#"+tid).attr("x", rx + left_annotation_box_w - textW - 8).attr("y", ry + textH / 2 + left_annotation_box_h / 2 - 3);
     }
 
     for (var i = 0; i < n; i++) {
