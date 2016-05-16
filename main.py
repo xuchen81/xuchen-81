@@ -157,9 +157,9 @@ class SudokuHandler(webapp2.RequestHandler):
         self.response.out.write(template.render('sudoku.html',{}))
 
 
-class PixelCrossHandler(webapp2.RequestHandler):
+class NonogramHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.out.write(template.render('pixel_cross.html',{}))
+        self.response.out.write(template.render('nonogram.html',{}))
 
 
 app = webapp2.WSGIApplication([
@@ -174,5 +174,5 @@ app = webapp2.WSGIApplication([
     ('/shortest-path-solver', ShortestPathSolverHandler),
     ('/memory-cards', MemoryCardHandler),
     ('/sudoku', SudokuHandler),
-    ('/pixel-cross', PixelCrossHandler),
+    ('/nonogram', NonogramHandler),
 ], debug=True)
