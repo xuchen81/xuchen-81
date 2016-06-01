@@ -85,5 +85,5 @@ $(function() {
        .style("opacity", .9)
        .attr('class', 'pie')
        .attr('transform', 'translate(250, 250)');
-    setInterval(randomRotate, 1000)
+    setInterval(randomRotate, 1000);
 });
