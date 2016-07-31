@@ -162,6 +162,11 @@ class NonogramHandler(webapp2.RequestHandler):
         self.response.out.write(template.render('nonogram.html',{}))
 
 
+class Story(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('chensstory.html',{}))
+
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/dj', DJHandler),
@@ -175,4 +180,5 @@ app = webapp2.WSGIApplication([
     ('/memory-cards', MemoryCardHandler),
     ('/sudoku', SudokuHandler),
     ('/nonogram', NonogramHandler),
+    ('/story', Story),
 ], debug=True)

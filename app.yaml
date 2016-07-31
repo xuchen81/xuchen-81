@@ -21,6 +21,9 @@ handlers:
 - url: /otf
   static_dir: otf
 
+- url: /font
+  static_dir: font
+
 - url: .*
   script: main.app
 
