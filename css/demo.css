@@ -164,3 +164,20 @@
 		font-size: 60%;
 	}
 }
+.demo-4 body {
+    background-color: #fff;
+}
+.paginationjs {
+    display: table;
+    margin: 10px auto 0 auto;
+}
+.anime_page_number {
+	display: block;
+	margin-top: -60px;
+}
+.bb-custom-side {
+	flex-direction: column;
+}
+.bb-custom-side .bb-custom-img {
+	height: 86%;
+}

@@ -14,8 +14,7 @@
         <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 		<script src="js/lib/modernizr.custom.js"></script>
         <script src="js/lib/pagination.min.js"></script>
-        <script src="js/story.origin.js"></script>
-
+        <script src="js/story.min.js"></script>
 	</head>
 	<body>
         <div id="pagination-container"></div>
@@ -29,18 +28,30 @@
 							<!-- <img class="bb-custom-img" src="img/story/c1/1.jpg" height="800" alt="image01"/> -->
 						</div>
 						<div class="bb-custom-side">
-							<img class="bb-custom-img" src="img/story/c1/1.jpg"  style="height: 90%;" alt="image01"/>
+                                <span class="anime_page_number">1</span>
+                                <img class="bb-custom-img content page1" src="img/story/c1/1.jpg" alt="image01"/>
 						</div>
 					</div>
 					<div class="bb-item">
 						<div class="bb-custom-side">
-							<img class="bb-custom-img" src="img/story/c1/2.jpg" style="height: 90%;" alt="image01"/>
+                            <span class="anime_page_number">2</span>
+							<img class="bb-custom-img content page2" src="img/story/c1/2.jpg" alt="image01"/>
 							<!-- <p>Soufflé tootsie roll jelly beans. Sweet icing croissant dessert bear claw. Brownie dessert cheesecake danish jelly pudding bear claw soufflé.</p> -->
 						</div>
 						<div class="bb-custom-side">
-							<!-- <img class="bb-custom-img" src="img/story/c1/1.jpg" height="800" alt="image01"/> -->
-                            <p>To be continued...<p>
+							<span class="anime_page_number">3</span>
+                            <img class="bb-custom-img content page3" src="img/story/c1/3.jpg" alt="image01"/>
 							<!-- <p>Candy canes lollipop macaroon marshmallow gummi bears tiramisu. Dessert croissant cupcake candy canes. Bear claw faworki faworki lemon drops. Faworki marzipan sugar plum jelly-o marzipan jelly-o.</p> -->
+						</div>
+					</div>
+                    <div class="bb-item">
+						<div class="bb-custom-side">
+                            <span class="anime_page_number">4</span>
+							<img class="bb-custom-img content page4" src="img/story/c1/4.jpg" alt="image01"/>
+							<!-- <p>Soufflé tootsie roll jelly beans. Sweet icing croissant dessert bear claw. Brownie dessert cheesecake danish jelly pudding bear claw soufflé.</p> -->
+						</div>
+						<div class="bb-custom-side">
+                            <p>To be continued...</p>
 						</div>
 					</div>
 
@@ -56,89 +67,12 @@
 
 		</div><!-- /container -->
 		<script src="js/lib/jquerypp.custom.js"></script>
-		<script src="js/lib/jquery.bookblock.min.js"></script>
+		<script src="js/lib/jquery.bookblock.js"></script>
 		<script>
-			var Page = (function() {
 
-				var config = {
-						$bookBlock : $( '#bb-bookblock' ),
-						$navNext : $( '#bb-nav-next' ),
-						$navPrev : $( '#bb-nav-prev' ),
-						$navFirst : $( '#bb-nav-first' ),
-						$navLast : $( '#bb-nav-last' )
-					},
-					init = function() {
-						config.$bookBlock.bookblock( {
-							speed : 1000,
-							shadowSides : 0.8,
-							shadowFlip : 0.4
-						} );
-						initEvents();
-					},
-					initEvents = function() {
-
-						var $slides = config.$bookBlock.children();
-
-						// add navigation events
-						config.$navNext.on( 'click touchstart', function() {
-							config.$bookBlock.bookblock( 'next' );
-							return false;
-						} );
-
-						config.$navPrev.on( 'click touchstart', function() {
-							config.$bookBlock.bookblock( 'prev' );
-							return false;
-						} );
-
-						config.$navFirst.on( 'click touchstart', function() {
-							config.$bookBlock.bookblock( 'first' );
-							return false;
-						} );
-
-						config.$navLast.on( 'click touchstart', function() {
-							config.$bookBlock.bookblock( 'last' );
-							return false;
-						} );
-
-						// add swipe events
-						$slides.on( {
-							'swipeleft' : function( event ) {
-								config.$bookBlock.bookblock( 'next' );
-								return false;
-							},
-							'swiperight' : function( event ) {
-								config.$bookBlock.bookblock( 'prev' );
-								return false;
-							}
-						} );
-
-						// add keyboard events
-						$( document ).keydown( function(e) {
-							var keyCode = e.keyCode || e.which,
-								arrow = {
-									left : 37,
-									up : 38,
-									right : 39,
-									down : 40
-								};
-
-							switch (keyCode) {
-								case arrow.left:
-									config.$bookBlock.bookblock( 'prev' );
-									break;
-								case arrow.right:
-									config.$bookBlock.bookblock( 'next' );
-									break;
-							}
-						} );
-					};
-
-					return { init : init };
-
-			})();
 		</script>
 		<script>
-				Page.init();
+
 		</script>
 	</body>
 </html>
