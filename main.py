@@ -26,6 +26,9 @@ import config
 template.register_template_library('common.filters')
 
 
+ALL_CHAPTERS = 1
+
+
 def get_user_profile():
   params = urllib.urlencode({'access_token': config.Chen_ACCESS_TOKEN})
   url = "api.moves-app.com/api/1.1/user/profile?%s" % (params)
@@ -162,9 +165,22 @@ class NonogramHandler(webapp2.RequestHandler):
         self.response.out.write(template.render('nonogram.html',{}))
 
 
+class StoryList(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('storylist.html',{}))
+
+
 class Story(webapp2.RequestHandler):
     def get(self):
-        self.response.out.write(template.render('chensstory.html',{}))
+        c = self.request.get("chapter")
+        try:
+            c = int(c)
+            if c <= 0 or c > ALL_CHAPTERS:
+                raise Exception("Bad Chapter Number...")
+        except:
+            self.redirect("/storys")
+
+        self.response.out.write(template.render('chensstory.html', {"chapter": c}))
 
 
 app = webapp2.WSGIApplication([
@@ -180,5 +196,6 @@ app = webapp2.WSGIApplication([
     ('/memory-cards', MemoryCardHandler),
     ('/sudoku', SudokuHandler),
     ('/nonogram', NonogramHandler),
+    ('/storys', StoryList),
     ('/story', Story),
 ], debug=True)
