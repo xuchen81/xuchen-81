@@ -165,11 +165,6 @@ class NonogramHandler(webapp2.RequestHandler):
         self.response.out.write(template.render('nonogram.html',{}))
 
 
-class StoryList(webapp2.RequestHandler):
-    def get(self):
-        self.response.out.write(template.render('storylist.html',{}))
-
-
 class Story(webapp2.RequestHandler):
     def get(self):
         c = self.request.get("chapter")
@@ -177,10 +172,10 @@ class Story(webapp2.RequestHandler):
             c = int(c)
             if c <= 0 or c > ALL_CHAPTERS:
                 raise Exception("Bad Chapter Number...")
+            self.response.out.write(template.render('chensstory.html', {"chapter": c}))
         except:
-            self.redirect("/storybook")
-
-        self.response.out.write(template.render('chensstory.html', {"chapter": c}))
+            # self.redirect("/storybook")
+            self.response.out.write(template.render('storylist.html',{}))
 
 
 app = webapp2.WSGIApplication([
@@ -196,6 +191,5 @@ app = webapp2.WSGIApplication([
     ('/memory-cards', MemoryCardHandler),
     ('/sudoku', SudokuHandler),
     ('/nonogram', NonogramHandler),
-    ('/storybook', StoryList),
     ('/story', Story),
 ], debug=True)
