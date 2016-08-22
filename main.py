@@ -178,7 +178,7 @@ class Story(webapp2.RequestHandler):
             if c <= 0 or c > ALL_CHAPTERS:
                 raise Exception("Bad Chapter Number...")
         except:
-            self.redirect("/storys")
+            self.redirect("/storybook")
 
         self.response.out.write(template.render('chensstory.html', {"chapter": c}))
 
@@ -196,6 +196,6 @@ app = webapp2.WSGIApplication([
     ('/memory-cards', MemoryCardHandler),
     ('/sudoku', SudokuHandler),
     ('/nonogram', NonogramHandler),
-    ('/storys', StoryList),
+    ('/storybook', StoryList),
     ('/story', Story),
 ], debug=True)
