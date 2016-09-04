@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chen Xu - Picture Cross Game</title>
+<style>
+svg {
+    display: block;
+    margin: 0 auto;
+}
+#hint_btn{
+    text-align: center;
+    padding: 10px;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/parabola_multiplication.min.js"></script>
+</head>
+<body>
+
+<div id="hint_btn">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#instructions">
+  What's going on?
+</button>
+</div>
+<div class="collapse" id="instructions">
+  <div class="well">
+    <h3>parabola-powered calculator</h3>
+    <p>Drag a line from 1 black circle to another 1 from the opposite side.</p>
+    <p>The place where the line crosses the vertical number scale is the product of the two numbers you have chosen.</p>
+    <p>Surprised? Even if you're familiar with this curve called a parabola, you probably didn't realize it could help you with multiplication. Numbers and geometric patterns are inextricably linked, often in
+    suprising ways.</p>
+    <p>Here, the line intercepts the vertical axis at a point known as the geometric mean of the two numbers you chose - effectively multiplying them together.</p>
+  </div>
+</div>
+<div id="canvas"></div>
+</body>
+</html>
