@@ -137,6 +137,7 @@ $(function() {
                           .attr('stroke-width', 3)
                           .attr("x1", startX).attr("y1", startY)
                           .attr("x2", startX).attr("y2", startY + 1)
+                          .style("opacity", .8)
                           .attr("id", "dragging");
 
         d3.event.on("drag", function() {
