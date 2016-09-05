@@ -165,6 +165,11 @@ class NonogramHandler(webapp2.RequestHandler):
         self.response.out.write(template.render('nonogram.html',{}))
 
 
+class ParabolaMultiplication(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('parabola_multiplication.html',{}))
+
+
 class Story(webapp2.RequestHandler):
     def get(self):
         c = self.request.get("chapter")
@@ -191,5 +196,6 @@ app = webapp2.WSGIApplication([
     ('/memory-cards', MemoryCardHandler),
     ('/sudoku', SudokuHandler),
     ('/nonogram', NonogramHandler),
+    ('/parabola_multiplication', ParabolaMultiplication),
     ('/story', Story),
 ], debug=True)

@@ -1,5 +1,7 @@
 $(function() {
     var squareSize = 10;
+    var orangeSqSize = 20;
+    var orange = "#ed5842";
     var width = 820, height = 1060;
     var svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
     var row_box = 82;
@@ -21,13 +23,38 @@ $(function() {
                               .attr("class", "cell");
         }
     }
+
+    var orangeSqData = [
+        {"x": 36 * squareSize, "y": 0, "size": orangeSqSize, "text": 2},
+        {"x": 40 * squareSize, "y": 0, "size": orangeSqSize, "text": 2},
+        {"x": 44 * squareSize, "y": 0, "size": orangeSqSize, "text": 3},
+    ];
+    svg.selectAll('rect.first_row_orange')
+       .data(orangeSqData)
+       .enter()
+       .append('rect')
+       .attr('x', function(d) {
+           return d.x;
+       })
+       .attr('y', function(d) {
+           return d.y;
+       })
+       .attr('width', function(d) {
+           return d.size;
+       })
+       .attr('height', function(d) {
+           return d.size;
+       })
+       .attr('fill', orange)
+       .style("opacity", .9);
+
     var start = 10, turned = 0, annoId = 1;
     for (var i = 0; i <= 80; i += 4) {
         var tid = "text_" + annoId;
         svg.append("text").attr("x", i * squareSize + squareSize - 5).attr("y", 10).text(start).style("font-size","12px").style("font-weight","bold").attr('id', tid);
         var textW = d3.select("#"+tid).node().getBoundingClientRect().width;
         var textH = d3.select("#"+tid).node().getBoundingClientRect().height;
-        d3.select("#"+tid).attr("x", i * squareSize + squareSize - textW / 2).attr("y", 10);
+        d3.select("#"+tid).attr("x", i * squareSize + squareSize - textW / 2).attr("y", 6 + textH/2);
         if (start == 0) {
             turned = 1;
         }
@@ -38,6 +65,15 @@ $(function() {
             start += 1;
         }
         annoId += 1;
+    }
+    var modifyIds = ["text_10", "text_11", "text_12"];
+    var orangeSqXCenter = [37 * squareSize, 41 * squareSize, 45 * squareSize];
+    for (var i = 0; i < modifyIds.length; i++) {
+        var tid = modifyIds[i];
+        d3.select("#"+tid).style("font-size","20px").style("font-weight","bold").style("fill", "white");
+        var textW = d3.select("#"+tid).node().getBoundingClientRect().width;
+        var textH = d3.select("#"+tid).node().getBoundingClientRect().height;
+        d3.select("#"+tid).attr("x", orangeSqXCenter[i] - textW/2).attr("y", 19 - Math.abs(10 - textH/2));
     }
     svg.append('line').style("stroke", "black").attr('stroke-width', 3).attr("x1", 0).attr("y1", firstFowTextHeight).attr("x2", row_box * squareSize).attr("y2", firstFowTextHeight);
     var circleR = 4;
@@ -65,10 +101,7 @@ $(function() {
         {"cx": 81 * squareSize, "cy": squareSize * 100 + firstFowTextHeight, "r": circleR},
     ];
 
-    var lineFunction = d3.line()
-                             .x(function(d) { return d.cx; })
-                             .y(function(d) { return d.cy; })
-                             .curve(d3.curveCardinal);
+    var lineFunction = d3.line().x(function(d) { return d.cx; }).y(function(d) { return d.cy; }).curve(d3.curveCardinal);
 
     var lineGraph = svg.append("path")
                        .attr("d", lineFunction(plotData))
@@ -76,7 +109,6 @@ $(function() {
                        .attr("stroke-width", 3)
                        .attr("fill", "none");
 
-    var orange = "#ed5842";
     svg.selectAll('circle')
        .data(plotData)
        .enter()
@@ -178,7 +210,7 @@ $(function() {
             return 0;
         }
     }
-    svg.selectAll('line')
+    svg.selectAll('line.orange')
        .data(plotData)
        .enter()
        .append('line')
@@ -198,12 +230,8 @@ $(function() {
            return d.cy - circleR;
        })
        .style("stroke", orange)
-       .style("stroke-width", 3);
-
-    svg.append('line').style("stroke", orange)
-                      .attr('stroke-width', 3)
-                      .attr("x1", 1 * squareSize).attr("y1", firstFowTextHeight)
-                      .attr("x2", 1 * squareSize).attr("y2", 100 * squareSize + firstFowTextHeight - circleR);
+       .style("stroke-width", 3)
+       .style("opacity", .9);
 
     for (var i = 1; i <= col_box; i++) {
         var tid = "t_" + i;
@@ -211,5 +239,58 @@ $(function() {
         var textW = d3.select("#"+tid).node().getBoundingClientRect().width;
         var textH = d3.select("#"+tid).node().getBoundingClientRect().height;
         d3.select("#"+tid).attr("x", 41 * squareSize - textW/2).attr("y", firstFowTextHeight + (i+1) * squareSize - 0.5 * textH);
+    }
+
+    var orangeSqData = [
+        {"x": 32 * squareSize, "y": firstFowTextHeight + 5, "size": orangeSqSize, "text": 2},
+        {"x": 48 * squareSize, "y": firstFowTextHeight + 5, "size": orangeSqSize, "text": 2},
+        {"x": 28 * squareSize, "y": firstFowTextHeight + 5 * squareSize, "size": orangeSqSize, "text": 3},
+        {"x": 52 * squareSize, "y": firstFowTextHeight + 5 * squareSize, "size": orangeSqSize, "text": 3},
+        {"x": 24 * squareSize, "y": firstFowTextHeight + 12 * squareSize - 5, "size": orangeSqSize, "text": 4},
+        {"x": 56 * squareSize, "y": firstFowTextHeight + 12 * squareSize - 5, "size": orangeSqSize, "text": 4},
+        {"x": 20 * squareSize, "y": firstFowTextHeight + 20 * squareSize, "size": orangeSqSize, "text": 5},
+        {"x": 60 * squareSize, "y": firstFowTextHeight + 20 * squareSize, "size": orangeSqSize, "text": 5},
+        {"x": 16 * squareSize, "y": firstFowTextHeight + 30 * squareSize, "size": orangeSqSize, "text": 6},
+        {"x": 64 * squareSize, "y": firstFowTextHeight + 30 * squareSize, "size": orangeSqSize, "text": 6},
+        {"x": 12 * squareSize, "y": firstFowTextHeight + 42 * squareSize + 5, "size": orangeSqSize, "text": 7},
+        {"x": 68 * squareSize, "y": firstFowTextHeight + 42 * squareSize + 5, "size": orangeSqSize, "text": 7},
+        {"x": 8 * squareSize, "y": firstFowTextHeight + 57 * squareSize, "size": orangeSqSize, "text": 8},
+        {"x": 72 * squareSize, "y": firstFowTextHeight + 57 * squareSize, "size": orangeSqSize, "text": 8},
+        {"x": 4 * squareSize, "y": firstFowTextHeight + 73 * squareSize, "size": orangeSqSize, "text": 9},
+        {"x": 76 * squareSize, "y": firstFowTextHeight + 73 * squareSize, "size": orangeSqSize, "text": 9},
+        {"x": 0 * squareSize, "y": firstFowTextHeight + 92 * squareSize, "size": orangeSqSize, "text": 10},
+        {"x": 80 * squareSize, "y": firstFowTextHeight + 92 * squareSize, "size": orangeSqSize, "text": 10},
+    ];
+    svg.selectAll('rect.orange')
+       .data(orangeSqData)
+       .enter()
+       .append('rect')
+       .attr('x', function(d) {
+           return d.x;
+       })
+       .attr('y', function(d) {
+           return d.y;
+       })
+       .attr('width', function(d) {
+           return d.size;
+       })
+       .attr('height', function(d) {
+           return d.size;
+       })
+       .attr('fill', orange)
+       .style("opacity", .9);
+
+    for (var i = 0; i < orangeSqData.length; i++) {
+        var tid = "white_" + i;
+        svg.append("text").attr("x", orangeSqData[i].x)
+                          .attr("y", orangeSqData[i].y + 20)
+                          .text(orangeSqData[i].text)
+                          .style("font-size","20px")
+                          .style("font-weight","bold")
+                          .attr("id", tid)
+                          .style("fill", "white");
+        var textW = d3.select("#"+tid).node().getBoundingClientRect().width;
+        var textH = d3.select("#"+tid).node().getBoundingClientRect().height;
+        d3.select("#"+tid).attr("x", orangeSqData[i].x + 10 - textW/2).attr("y", orangeSqData[i].y + 20 - Math.abs(10 - textH/2));
     }
 });
