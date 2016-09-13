@@ -1,3 +1,14 @@
+1. Type the following to get the pin and enter 8 digit code on your phone, and get the code. Redirect URI needs to be set.
+
 https://api.moves-app.com/oauth/v1/authorize?response_type=code&client_id=<>&scope=activity location
 
-curl -X POST -H "Content-Type: application/json" -d '{"grant_type":"authorization_code", "code": "<>", "client_id": "<>", "client_secret":"<>"}' https://api.moves-app.com/oauth/v1/access_token
+2. get access token
+
+curl -X POST -H "Content-Type: application/json" -d '{"grant_type":"authorization_code","code":"<>","client_id":"<>","client_secret":"<>"}' https://api.moves-app.com/oauth/v1/access_token
+
+3. Refresh token
+
+curl -X POST -H "Content-Type: application/json" -d '{"grant_type”:"refresh_token","refresh_token”:"<>","client_id":"<>","client_secret":"<>"}' https://api.moves-app.com/oauth/v1/access_token
+
+
+{"access_token":"6BH0Q9UkCBK1wLxSedM1PLkocn95ikbyLwBXl9LRc79VMk4qZgCAx6Kfc278_6R2","token_type":"bearer","expires_in":15551999,"refresh_token":"18D17lsULv7Hzo4qmgFL1EoKJFj3f1F7_89m06B6onjdHQY_5AaYm6wvdt9kdXzQ","user_id":46001932645427655}
