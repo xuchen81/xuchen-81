@@ -183,6 +183,11 @@ class Story(webapp2.RequestHandler):
             self.response.out.write(template.render('storylist.html',{}))
 
 
+class SampleApp(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('sampleapp.html',{}))
+
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/dj', DJHandler),
@@ -198,4 +203,5 @@ app = webapp2.WSGIApplication([
     ('/nonogram', NonogramHandler),
     ('/parabola_multiplication', ParabolaMultiplication),
     ('/story', Story),
+    ('/sampleapp', SampleApp),
 ], debug=True)
