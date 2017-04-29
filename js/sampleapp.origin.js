@@ -285,7 +285,12 @@ $(function() {
         }
     }
 
-    var g = new SampleAppTimeWastedGeneration(data, 'canvas');
-    g.rederSampleAppAccountInfo();
-    g.renderSampleAppLifecycleBar();
+    $("#sampleapp_check_button").click(function() {
+        $("#canvas").empty();
+        var g = new SampleAppTimeWastedGeneration(data, 'canvas');
+        g.rederSampleAppAccountInfo();
+        g.renderSampleAppLifecycleBar();
+    });
+
+    $("#sampleapp_check_button").trigger("click");
 });
