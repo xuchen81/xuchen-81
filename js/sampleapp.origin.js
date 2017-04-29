@@ -42,7 +42,6 @@ $(function() {
             "lock_status": "PERMANENT",
             "sample_app_id": "1001"
         },
-
         {
             "controller": 589,
             "account_id": "255",
@@ -98,7 +97,7 @@ $(function() {
             "associated_to_license_on": "2017-04-28T10:13:20.700305",
             "lock_status": "PERMANENT",
             "sample_app_id": "1008"
-        },
+        }
 
     ];
     //PDT str, PDT str, UTC datetime
@@ -129,7 +128,7 @@ $(function() {
             runningWidth = lifecycleBarWidth - wastedWidth;
         }
 
-        return {"wastedWidth": wastedWidth, "runningWidth":runningWidth, "toRunWidth":lifecycleBarWidth-wastedWidth-runningWidth}
+        return {"wastedWidth": wastedWidth, "runningWidth":runningWidth, "toRunWidth":lifecycleBarWidth-wastedWidth-runningWidth};
     };
 
     class SampleAppTimeWastedGeneration {
@@ -162,7 +161,6 @@ $(function() {
                 .append('text')
                 .attr("x", 0)
                 .attr("y", function(d, i) {
-                    console.log((i + 1) * self.lineHeight);
                     return (i + 1) * self.lineHeight;
                 })
                 .text(function(d){
@@ -180,9 +178,7 @@ $(function() {
                 self.maxTextWidth = Math.max(self.maxTextWidth, textW)
                 var currY = parseInt(currText.attr("y"));
                 var textH = currText.node().getBoundingClientRect().height;
-                console.log("what ", currY - (self.lineHeight - self.barHeight) - (self.barHeight - textH) / 2 - 2);
                 currText.attr("y", currY - (self.lineHeight - self.barHeight) - (self.barHeight - textH) / 2 - 2);
-                console.log(textW, textH);
             }
 
             for (var i = 0; i < self.data.length; i++) {
