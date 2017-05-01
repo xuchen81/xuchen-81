@@ -284,6 +284,16 @@ $(function() {
                 .each("end", redTransitionCallback);
         }
     }
+    // $( "#datepicker" ).datepicker({
+    //     dateFormat: "yy-mm-dd"
+    // });
+    //
+    // $("#datepicker").datepicker().datepicker("setDate", new Date());
+    //
+    // $("#check_date").click(function() {
+    //     console.log($("#datepicker").val());
+    //
+    // });
 
     $("#sampleapp_check_button").click(function() {
         $("#canvas").empty();

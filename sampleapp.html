@@ -12,16 +12,40 @@ svg {
     text-align: center;
     padding: 10px;
 }
+
+.input-group {
+    width: 640px; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/js/sampleapp.min.js"></script>
+<!--
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+</script> -->
+
 </head>
 <body>
 
 <div id="hint_btn">
+    <!-- <div class="input-group col-xs-2">
+        <input type="text" id="datepicker" class="form-control">
+        <span class="input-group-btn">
+            <button id="check_date" class="btn btn-default" type="button">Go!</button>
+        </span>
+    </div> -->
 <button id="sampleapp_check_button" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#instructions">
   Time wasted for each sample app.
 </button>
