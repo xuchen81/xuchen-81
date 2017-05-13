@@ -209,5 +209,5 @@ app = webapp2.WSGIApplication([
     ('/parabola_multiplication', ParabolaMultiplication),
     ('/story', Story),
     ('/sampleapp', SampleApp),
-    ('/signup', SignupGrowth),
+    ('/growth', SignupGrowth),
 ], debug=True)
