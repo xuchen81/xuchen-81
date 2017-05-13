@@ -248,7 +248,7 @@ $(function() {
 //
 //       self.svg.call(tip);
 //
-//       x.domain(data.map(function(d) { return d.date; }));
+//       x.domain(self.data.map(function(d) { return d.date; }));
 //       y.domain([0, d3.max(self.data, function(d) { return d.all; })]);
 //
 //       self.svg.append("g")
