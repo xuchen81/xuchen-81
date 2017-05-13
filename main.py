@@ -188,6 +188,11 @@ class SampleApp(webapp2.RequestHandler):
         self.response.out.write(template.render('sampleapp.html',{}))
 
 
+class SignupGrowth(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('signup_growth.html',{}))
+
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/dj', DJHandler),
@@ -204,4 +209,5 @@ app = webapp2.WSGIApplication([
     ('/parabola_multiplication', ParabolaMultiplication),
     ('/story', Story),
     ('/sampleapp', SampleApp),
+    ('/signup', SignupGrowth),
 ], debug=True)
