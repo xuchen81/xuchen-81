@@ -193,6 +193,11 @@ class SignupGrowth(webapp2.RequestHandler):
         self.response.out.write(template.render('signup_growth.html',{}))
 
 
+class ULight(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('ulight.html',{}))
+
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/dj', DJHandler),
@@ -210,4 +215,5 @@ app = webapp2.WSGIApplication([
     ('/story', Story),
     ('/sampleapp', SampleApp),
     ('/growth', SignupGrowth),
+    ('/ulight', ULight),
 ], debug=True)
