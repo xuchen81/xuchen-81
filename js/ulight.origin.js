@@ -102,7 +102,7 @@ $(function() {
 
   uText.on("click", function() {
     if (d3.select("circle[id='lightBulbInside']").style("fill") == "rgb(255, 255, 255)") {
-        d3.select("circle[id='lightBulbInside']").style("fill", lightColor).attr('opacity', lightOpacity);
+        d3.select("circle[id='lightBulbInside']").style("fill", "url(#radial-gradient)");
     } else {
         d3.select("circle[id='lightBulbInside']").style("fill", "white");
     }
