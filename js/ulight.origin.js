@@ -9,16 +9,28 @@ $(function() {
   var uLightCenterColor = "#efe009";
   var svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
 
+  var radialGradient = svg.append("defs")
+    .append("radialGradient")
+    .attr("id", "radial-gradient");
+
+  radialGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#fffa05");
+
+  radialGradient.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#fff");
+
   var c = svg.append("circle")
       .attr("id", "lightBulbInside")
       .attr("cx", width/2)
       .attr("cy", 300)
-      .attr("r", lightBulbR + 40)
+      .attr("r", lightBulbR + 100)
       .style("fill", "white");
 
   c.on("click", function() {
     if (d3.select(this).style("fill") == "rgb(255, 255, 255)") {
-      d3.select(this).style("fill", lightColor).attr('opacity', lightOpacity);
+      d3.select(this).style("fill", "url(#radial-gradient)");
     } else {
       d3.select(this).style("fill", "white");
     }
