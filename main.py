@@ -198,6 +198,16 @@ class ULight(webapp2.RequestHandler):
         self.response.out.write(template.render('ulight.html',{}))
 
 
+class BPCharts(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('bp_charts.html',{}))
+
+
+class Three(webapp2.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('three.html',{}))
+
+
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/dj', DJHandler),
@@ -216,4 +226,6 @@ app = webapp2.WSGIApplication([
     ('/sampleapp', SampleApp),
     ('/growth', SignupGrowth),
     ('/ulight', ULight),
+    ('/charts', BPCharts),
+    ('/three', Three),
 ], debug=True)

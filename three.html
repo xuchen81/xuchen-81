@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="https://threejs.org/build/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="/js/OrbitControl.js"></script>
+    <button onclick="replaceHorseMesh()"> Replace 小马的 Mesh </button>
+    <button onclick="toggleLeftBallMesh()"> 切换 Phong 左边球的 Mesh </button>
+    <button onclick="toggleRightBallMesh()"> 切换 PBR 右边球的 Mesh </button>
+    <button onclick="printScene()"> 看看Scene </button>
+		<script>
+var scene = new THREE.Scene();
+// scene.overrideMaterial = new THREE.MeshPhongMaterial({
+//   name: "force"
+// });
+var camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 20000 );
+camera.position.set( 1, 1, 20 );
+ // Load a Renderer
+var renderer = new THREE.WebGLRenderer({ alpha: false });
+renderer.setClearColor( 0xb9b9b9 );
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+ // Load the Orbitcontroller
+var controls = new THREE.OrbitControls( camera, renderer.domElement );
+ // Load Light
+ var ambientLightColor = 0x5d7ee3;
+var ambientLight = new THREE.AmbientLight( ambientLightColor );
+scene.add( ambientLight );
+
+var light = new THREE.PointLight( 0xff00e6, 1, 800 );
+light.position.set( 50, 50, 50 );
+scene.add( light );
+
+ // glTf 2.0 Loader
+var loader = new THREE.GLTFLoader();
+	loader.load( '/img/suicune.gltf', function ( gltf ) {
+	var object = gltf.scene;
+	gltf.scene.scale.set( 0.05, 0.05, 0.05 );
+	gltf.scene.position.x = 0;				    //Position (x = right+ left-)
+  gltf.scene.position.y = 0;				    //Position (y = up+, down-)
+	gltf.scene.position.z = 0;				    //Position (z = front +, back-)
+
+	scene.add( gltf.scene );
+});
+
+const phongQiu = new THREE.SphereBufferGeometry(2);
+const phongMat = new THREE.MeshPhongMaterial();
+const phongMesh = new THREE.Mesh(phongQiu, phongMat);
+phongMesh.name = "left"
+phongMesh.position.set(5, 1, 1);
+scene.add(phongMesh)
+
+const pbrQiu = new THREE.SphereBufferGeometry(2);
+const pbrMat = new THREE.MeshStandardMaterial();
+const pbrMesh = new THREE.Mesh(pbrQiu, pbrMat);
+pbrMesh.position.set(10, 1, 1);
+pbrMesh.name = "right"
+scene.add(pbrMesh)
+
+function replaceHorseMesh() {
+  var gltfScene = scene.children.find(ele => ele.type === 'Scene');
+  // gltfScene.overrideMaterial = new THREE.MeshPhongMaterial();
+  // renderer.render(scene, camera);
+
+  gltfScene.traverse( ( child ) => {
+    if ( child.isMesh ) {
+        child.material = new THREE.MeshLambertMaterial();
+    }
+  } );
+}
+
+function toggleLeftBallMesh() {
+  var leftMesh = scene.children.find(ele => ele.name === 'left');
+  leftMesh.material = leftMesh.material.type === "MeshPhongMaterial"? new THREE.MeshStandardMaterial(): new THREE.MeshPhongMaterial();
+
+}
+
+function toggleRightBallMesh() {
+  var rightMesh = scene.children.find(ele => ele.name === 'right');
+  rightMesh.material = rightMesh.material.type === "MeshPhongMaterial"? new THREE.MeshStandardMaterial(): new THREE.MeshPhongMaterial();
+}
+
+function printScene() {
+  console.log("scene: ", scene);
+}
+
+function animate() {render();requestAnimationFrame( animate );}
+function render() {renderer.render( scene, camera );}
+render();animate();
+		</script>
+	</body>
+</html>
